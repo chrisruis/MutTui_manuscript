@@ -8,3 +8,6 @@ Spectra were simulated through sample_mutations_spectrum.py with "-m 10000" to s
 
 ### number_of_mutations directory
 Contains spectra, converted spectra and downsampled spectra used to assess the number of mutations required to estimated robust spectra for Mycobacterium tuberculosis lineage 4, Streptococcus agalactiae CC19, SARS-CoV-2 Delta and influenza A H3N2. Subsampling was carried out using subsample_spectra_DNA_RNA.py. Each dataset contains files with suffixes: rescaled.csv (the original SBS spectrum), converted.csv (the SBS spectrum converted to contain 10,000 mutations in the same proportions as the original spectrum in rescaled.csv), cosine.csv (the number of mutations and cosine similarity between each downsampled spectrum and the original spectrum)
+
+### tree_topology directory
+Contains datasets and MutTui outputs used to assess impact of tree topology on spectrum calculation. In each case, MutTui was run on 10 tree topologies sampled from a posterior distribution. The S_agalactiae_CC1 and MERS directories each contain the alignment, reference and position conversion file (same for each run) and 10 run directories that contain the respective tree and output from MutTui
