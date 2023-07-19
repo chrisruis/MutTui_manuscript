@@ -44,3 +44,8 @@ The *M. abscessus nth* gene signature was calculated using SNPs from deep sequen
 ```
 MutTui korimuto -v all_mutations.csv -r reference.fa --variant -o nth
 ```
+
+### environment_lung_comparison directory
+Contains data used to compare environmental and lung spectra in *Mycobacteria* and *Burkholderia*. The alignments (named with the clade name followed by .fasta), phylogenetic trees (named with the clade name followed by .nwk), position conversion files (named conversion.txt), references (named reference.fasta) and SBS spectra (named with the clade name followed by \_SBS.csv) for each dataset are in the respective directory. *M. canettii* and *M. kansasii* also contain labelled trees (named with the clade name followed by \_labelled.nwk) as their SBS spectra are calculated on a subset of branches.
+
+Directory spectrum_comparisons contains spectrum clustering and mutation type comparisons. SBS_combined.csv contains all included SBS spectra. Coordinates of PCA based on overall spectrum compositions are in SBS_PCA_coordinates.csv. The proportions of C>A mutations and T>C mutations in each spectrum are in CA_vs_TC.csv
