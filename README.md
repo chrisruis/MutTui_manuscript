@@ -17,6 +17,16 @@ Contains datasets and MutTui outputs used to assess impact of tree topology on s
 ### tree_rooting directory
 Contains datasets and MutTui output used to assess impact of rooting strategy on the *Streptococcus agalactiae* CC1 spectrum. The alignment, reference and position conversion file were the same for each run. The outgroup_rooting, midpoint_rooting and date_rooting directories contain the phylogenetic tree and MutTui output for each rooting strategy
 
+### synonymous_and_strand_bias directory
+Contains data and SBS spectra for synonymous mutations only and strand bias spectra. These spectra were calculated for *M. tuberculosis* lineage 4. The alignment, phylogenetic tree, position conversion file and reference were the same in each case. Coding gene information is provided with reference.gff. The synonymous mutations only SBS spectrum (SBS_synonymous_only.csv) was calculated using:
+```
+MutTui run -a M_tuberculosis_lineage4.fasta -t M_tuberculosis_lineage4.nwk -c conversion.txt -r reference.fasta -g reference.gff --synonymous -o synonymous_only
+```
+
+The strand bias spectrum was calculated using:
+```
+MutTui run -a M_tuberculosis_lineage4.fasta -t M_tuberculosis_lineage4.nwk -c conversion.txt -r reference.fasta -g reference.gff --strand_bias -o strand_bias
+```
 
 ### nth_gene_signatures directory
 Contains the files and spectra used to calculate the *nth* gene signature in *Mycobacterium leprae* and *Mycobacterium abscessus*.
