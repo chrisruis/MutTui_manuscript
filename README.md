@@ -16,3 +16,24 @@ Contains datasets and MutTui outputs used to assess impact of tree topology on s
 
 ### tree_rooting directory
 Contains datasets and MutTui output used to assess impact of rooting strategy on the Streptococcus agalactiae CC1 spectrum. The alignment, reference and position conversion file were the same for each run. The outgroup_rooting, midpoint_rooting and date_rooting directories contain the phylogenetic tree and MutTui output for each rooting strategy
+
+
+### nth_gene_signatures directory
+Contains the files and spectra used to calculate the nth gene signature in Mycobacterium leprae and Mycobacterium abscessus.
+
+The M. leprae signature was calculated from a phylogenetic tree that includes several hypermutator lineages. The mycobacterium_leprae directory includes the alignment (M_leprae.fasta), unlabelled tree (M_leprae.nwk), position conversion file (conversion.txt) and reference (reference.fasta). The tree was labelled to identify the hypermutator lineages using MutTui. Initially, node labels were added to the unlabelled tree to identify the branches on which the label changes using:
+```
+MutTui label-nodes -t M_leprae.nwk -o M_leprae_nodes_labelled.nwk
+```
+
+By viewing M_leprae_nodes_labelled.nwk with node labels (for example using FigTree), there are 4 tip branches with evidence of hypermutation and one internal branch leading to two sequences. The node labels show the internal branch is Node123). Therefore the tree can be labelled to separate the hypermutators (label nth) from the background branches (label B) using:
+```
+MutTui label-tree -t M_leprae.nwk -r B -s SRR6241727____nth SRR6241736_1____nth SRR6241800____nth SRR6241758____nth Node123____nth -o M_leprae_nodes_labelled.nwk
+```
+
+Then MutTui can be run to calculate the spectrum of the hypermutator lineages (and background branches separately) using:
+```
+MutTui run -a M_leprae.fasta -t M_leprae.nwk -lt M_leprae_labelled.nwk -c conversion.txt -r reference.fasta -o muttui_out --include_all_branches
+```
+
+The nth gene signature is in mutational_spectrum_label_nth_rescaled.csv
